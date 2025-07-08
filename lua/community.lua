@@ -9,5 +9,6 @@ return {
   { import = "astrocommunity.utility.hover-nvim" },
   { import = "astrocommunity.scrolling.vim-smoothie" },
   { import = "astrocommunity.editing-support.multicursors-nvim" },
+  { import = "astrocommunity.search.nvim-spectre" },
   -- import/override with your plugins folder
 }

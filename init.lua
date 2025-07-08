@@ -18,19 +18,26 @@ end
 require "lazy_setup"
 require "polish"
 
-vim.g.clipboard = {
-  copy = {
-    ["+"] = "win32yank.exe -i --crlf",
-    ["*"] = "win32yank.exe -i --crlf",
-  },
+-- vim.g.clipboard = {
+--   copy = {
+--     ["+"] = "win32yank.exe -i --crlf",
+--     ["*"] = "win32yank.exe -i --crlf",
+--   },
+--
+--   paste = {
+--     ["+"] = "win32yank.exe -0 --lf",
+--     ["-"] = "win32yank.exe -0 --lf",
+--   },
+--
+--   cache_enabled = 0,
+-- }
 
-  paste = {
-    ["+"] = "win32yank.exe -0 --lf",
-    ["-"] = "win32yank.exe -0 --lf",
-  },
+-- Neovide related configs
+-- vim.o.guifont = "CaskaydiaCove Nerd Font:h12"
+-- vim.opt.linespace = 6
+--
 
-  cache_enabled = 0,
-}
+-- vim.opt.laststatus = 2
 
 require("notify").setup {
   background_colour = "#000000",

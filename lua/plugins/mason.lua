@@ -13,10 +13,12 @@ return {
         "ts_ls",
         "gopls",
         "html",
-        "omnisharp",
+        -- "omnisharp",
         "cssls",
         "emmet_ls",
-        "clangd"
+        "dockerls",
+        "docker_compose_language_service"
+        -- "clangd"
         -- add more arguments for adding more language servers
       },
     },
@@ -34,7 +36,8 @@ return {
         "goimports",
         "goimports-reviser",
         "golines",
-        "csharpier",
+        "hadolint",
+        -- "csharpier",
         "clang-format"
         -- add more arguments for adding more null-ls sources
       },
@@ -45,7 +48,7 @@ return {
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = {
       ensure_installed = {
-        "netcoredbg"
+        -- "netcoredbg"
         -- "python",
         -- add more arguments for adding more debuggers
       },

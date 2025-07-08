@@ -13,7 +13,8 @@ return {
       "scss",
       "html",
       "go",
-      "json"
+      "json",
+      "dockerfile"
       -- add more arguments for adding more treesitter parsers
     },
   },

@@ -1,81 +1,81 @@
--- return {
---   "bluz71/vim-nightfly-colors",
---   name = "nightfly",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.g.nightflyItalics = false
---     vim.g.nightflyTransparent = true
---     vim.g.nightflyNormalFloat = true
---   end,
--- }
+-- -- return {
+-- --   "bluz71/vim-nightfly-colors",
+-- --   name = "nightfly",
+-- --   lazy = false,
+-- --   priority = 1000,
+-- --   config = function()
+-- --     vim.g.nightflyItalics = true
+-- --     vim.g.nightflyTransparent = false
+-- --     vim.g.nightflyNormalFloat = true
+-- --   end,
+-- -- }
+--
+-- -- return {
+-- --   "olimorris/onedarkpro.nvim",
+-- --   lazy = false,
+-- --   priority = 1000, -- Ensure it loads first
+-- --   config = function()
+-- --     require("onedarkpro").setup {
+-- --       highlights = {
+-- --         Comment = { italic = false },
+-- --       },
+-- --       options = {
+-- --         cursorline = false, -- Use cursorline highlighting?
+-- --         transparency = false, -- Use a transparent background?
+-- --         terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+-- --         lualine_transparency = false, -- Center bar transparency?
+-- --         highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
+-- --       },
+-- --     }
+-- --   end,
+-- -- }
 
--- return {
---   "olimorris/onedarkpro.nvim",
---   lazy = false,
---   priority = 1000, -- Ensure it loads first
---   config = function()
---     require("onedarkpro").setup {
---       highlights = {
---         Comment = { italic = false },
---       },
---       options = {
---         cursorline = false, -- Use cursorline highlighting?
---         transparency = true, -- Use a transparent background?
---         terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
---         lualine_transparency = true, -- Center bar transparency?
---         highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
---       },
---     }
---   end,
--- }
+return {
+  "rebelot/kanagawa.nvim",
+  name = "kanagawa",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    -- Default options:
+    require("kanagawa").setup {
+      compile = false, -- enable compiling the colorscheme
+      undercurl = true, -- enable undercurls
+      commentStyle = { italic = false },
+      functionStyle = { italic = false },
+      keywordStyle = { italic = false },
+      statementStyle = { bold = true, italic = false },
+      typeStyle = { italic = false },
+      transparent = false, -- do not set background color
+      terminalColors = true, -- define vim.g.terminal_color_{0,17}
+      theme = "wave", -- Load "wave" theme when 'background' option is not set
+      overrides = function(colors)
+        local theme = colors.theme
+        return {
+          NormalFloat = { bg = "none" },
+          FloatBorder = { bg = "none" },
+          FloatTitle = { bg = "none" },
 
--- return {
---   "rebelot/kanagawa.nvim",
---   name = "kanagawa",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     -- Default options:
---     require("kanagawa").setup {
---       compile = false, -- enable compiling the colorscheme
---       undercurl = true, -- enable undercurls
---       commentStyle = { italic = false },
---       functionStyle = {},
---       keywordStyle = { italic = true },
---       statementStyle = { bold = true },
---       typeStyle = {},
---       transparent = true, -- do not set background color
---       terminalColors = true, -- define vim.g.terminal_color_{0,17}
---       theme = "wave", -- Load "wave" theme when 'background' option is not set
---       overrides = function(colors)
---         local theme = colors.theme
---         return {
---           NormalFloat = { bg = "none" },
---           FloatBorder = { bg = "none" },
---           FloatTitle = { bg = "none" },
---
---           -- Save an hlgroup with dark background and dimmed foreground
---           -- so that you can use it where your still want darker windows.
---           -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
---           NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
---
---           -- Popular plugins that open floats will link to NormalFloat by default;
---           -- set their background accordingly if you wish to keep them dark and borderless
---           LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
---           MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
---           Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
---           PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
---           PmenuSbar = { bg = theme.ui.bg_m1 },
---           PmenuThumb = { bg = theme.ui.bg_p2 },
---         }
---       end,
---     }
---
---     -- setup must be called before loading
---     vim.cmd "colorscheme kanagawa"
---   end,
--- }
+          -- Save an hlgroup with dark background and dimmed foreground
+          -- so that you can use it where your still want darker windows.
+          -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
+          NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+
+          -- Popular plugins that open floats will link to NormalFloat by default;
+          -- set their background accordingly if you wish to keep them dark and borderless
+          LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+          MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+          Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+          PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+          PmenuSbar = { bg = theme.ui.bg_m1 },
+          PmenuThumb = { bg = theme.ui.bg_p2 },
+        }
+      end,
+    }
+
+    -- setup must be called before loading
+    vim.cmd "colorscheme kanagawa"
+  end,
+}
 
 -- return {
 --   "folke/tokyonight.nvim",
@@ -173,10 +173,10 @@
 --     require("night-owl").setup {
 --       -- These are the default settings
 --       bold = true,
---       italics = true,
+--       italics = false,
 --       underline = true,
 --       undercurl = true,
---       transparent_background = false,
+--       transparent_background = true,
 --     }
 --     vim.cmd.colorscheme "night-owl"
 --   end,
@@ -299,30 +299,30 @@
 --   end,
 -- }
 --
-return {
-  "maxmx03/solarized.nvim",
-  lazy = false,
-  priority = 1000,
-  ---@type solarized.config
-  opts = {},
-  config = function(_, opts)
-    require("solarized").setup {
-      transparent = {
-        enabled = true, -- Master switch to enable transparency
-        pmenu = true, -- Popup menu (e.g., autocomplete suggestions)
-        normal = true, -- Main editor window background
-        normalfloat = true, -- Floating windows
-        neotree = true, -- Neo-tree file explorer
-        nvimtree = true, -- Nvim-tree file explorer
-        whichkey = true, -- Which-key popup
-        telescope = true, -- Telescope fuzzy finder
-        lazy = true, -- Lazy plugin manager UI
-        mason = true, -- Mason manage external tooling
-      },
-    }
-    vim.o.termguicolors = true
-    vim.o.background = "dark"
-    require("solarized").setup(opts)
-    vim.cmd.colorscheme "solarized"
-  end,
-}
+-- return {
+--   "maxmx03/solarized.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   ---@type solarized.config
+--   opts = {},
+--   config = function(_, opts)
+--     require("solarized").setup {
+--       transparent = {
+--         enabled = true, -- Master switch to enable transparency
+--         pmenu = true, -- Popup menu (e.g., autocomplete suggestions)
+--         normal = true, -- Main editor window background
+--         normalfloat = true, -- Floating windows
+--         neotree = true, -- Neo-tree file explorer
+--         nvimtree = true, -- Nvim-tree file explorer
+--         whichkey = true, -- Which-key popup
+--         telescope = true, -- Telescope fuzzy finder
+--         lazy = true, -- Lazy plugin manager UI
+--         mason = true, -- Mason manage external tooling
+--       },
+--     }
+--     vim.o.termguicolors = true
+--     vim.o.background = "dark"
+--     require("solarized").setup(opts)
+--     vim.cmd.colorscheme "solarized"
+--   end,
+-- }
